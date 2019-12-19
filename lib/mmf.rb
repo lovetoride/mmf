@@ -9,7 +9,7 @@ class Mmf::Client
   VAR     = /%\{(.*?)\}/
   API_MAP = {
     # user resources
-    me:                 { method: :get,  endpoint: 'v7.0/user/self' },
+    me:                 { method: :get,  endpoint: 'v7.0/user/self/' },
     deactivate:         { method: :post, endpoint: 'v7.0/user_deactivation', },
     user:               { method: :get,  endpoint: 'v7.0/user/%{user_id}', defaults: { user_id: :me } },
     create_user:        { method: :post, endpoint: 'v7.0/user' },
@@ -35,8 +35,8 @@ class Mmf::Client
     privacy_option:     { method: :get,  endpoint: 'v7.0/privacy_option/%{privacy_option_id}' },
 
     # workout resources
-    add_workout:        { method: :post, endpoint: 'v7.0/workout', required: [:activity_type, :name, :start_datetime, :start_locale_timezone] },
-    workouts:           { method: :get,  endpoint: 'v7.0/workout', required: [:user], defaults: { user: :me } },
+    add_workout:        { method: :post, endpoint: 'v7.0/workout/', required: [:activity_type, :name, :start_datetime, :start_locale_timezone] },
+    workouts:           { method: :get,  endpoint: 'v7.0/workout/', required: [:user], defaults: { user: :me } },
     workout:            { method: :get,  endpoint: 'v7.0/workout/%{workout_id}' },
 
     # course resources
